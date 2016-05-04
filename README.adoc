@@ -1,0 +1,29 @@
+== jupyter-spark-vagrantbox
+.This ansible script provisions a vagrant box with:
+* Oracle Java 8
+* spark_version: "1.6.1-bin-hadoop2.6"
+* Anaconda2-2.5.0-Linux-x86_64.sh (python2) or Anaconda3-2.5.0-Linux-x86_64.sh (python3)
+* Jupyter Scala binaries for Scala 2.11 when using python3
+
+=== License
+The MIT License (MIT).  See LICENSE.adoc
+
+=== What is needed to run the program
+You must have Ansible, VirtualBox, and Vagrant installed.  
+See ANSIBLE.adoc.
+As provided, the Vagrant VM will use all of your cores and 1/2 of your memory.
+
+=== How to run
+.To get this project working, perform the minimum steps:
+----
+ $ vagrant up 
+ $ ansible-playbook jupyter-spark.yml 
+----
+
+.To Use:
+* make a data directory and put your working files there `mkdir data`
+* open http://localhost:8888 in the browser
+* change directory to /vagrant/data in Jupiter notebook
+* create a new notebook
+* in the Python Jupyter notebook you can access the spark context with variable sc
+* remember to do `vagrant destroy` when you are done
