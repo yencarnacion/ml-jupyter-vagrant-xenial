@@ -99,4 +99,4 @@
   command: systemctl start notebook
 
 - name: Install other anaconda packages
-  command: /usr/lib/anaconda/bin/conda install -c anaconda html5lib
+  command: /usr/lib/anaconda/bin/conda install -c anaconda --yes -q html5lib

@@ -16,8 +16,7 @@ As provided, the Vagrant VM will use all of your cores and 1/2 of your memory.
 === How to run
 .To get this project working, perform the minimum steps:
 ----
- $ vagrant up 
- $ ansible-playbook jupyter-spark.yml 
+ $ go.sh
 ----
 
 .To Use:
