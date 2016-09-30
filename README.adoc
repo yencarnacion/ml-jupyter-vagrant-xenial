@@ -1,8 +1,8 @@
 == jupyter-spark-vagrantbox
 .This ansible script provisions a vagrant box with:
 * Oracle Java 8
-* spark_version: "1.6.1-bin-hadoop2.6"
-* Anaconda2-2.5.0-Linux-x86_64.sh (python2) or Anaconda3-2.5.0-Linux-x86_64.sh (python3)
+* spark_version: "2.0.0-bin-hadoop2.7"
+* Anaconda3-4.2.0-Linux-x86_64.sh (python3)
 * Jupyter Scala binaries for Scala 2.11 when using python3
 
 === License

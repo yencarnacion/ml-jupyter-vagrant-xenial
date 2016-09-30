@@ -14,7 +14,7 @@
   when: python_version == "python2"
 
 - name: Download anaconda python3 distribution
-  command: wget http://repo.continuum.io/archive/Anaconda3-2.5.0-Linux-x86_64.sh -O /tmp/anaconda.sh
+  command: wget http://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh -O /tmp/anaconda.sh
   when: python_version == "python3"
 
 - name: Make anaconda distribution file executable
@@ -31,17 +31,11 @@
   - "export PATH={{ anaconda_home }}/bin:$PATH"
 
 - name: Download Jupyter Scala binaries
-  command: wget https://oss.sonatype.org/content/repositories/snapshots/com/github/alexarchambault/jupyter/jupyter-scala-cli_2.11.6/0.2.0-SNAPSHOT/jupyter-scala_2.11.6-0.2.0-SNAPSHOT.tar.xz -O /tmp/js.tar.xz
+  command: wget https://git.io/vrHhi -O /tmp/jupyter-scala
   when: python_version == "python3"
 
-- name: Unarchive Jupyter Scala binaries
-  command: unxz /tmp/js.tar.xz
-  when: python_version == "python3"
-
-- name: Untar Jupyter Scala binaries
-  command: tar xf /tmp/js.tar -C /opt
-  when: python_version == "python3"
-
+- name: Make Jupyter Scala executable
+  file: path=/tmp/jupyter-scala state=touch mode="u=rwx,g=r,o=r" owner="ubuntu" group="ubuntu"
 
 #- name: Update conda to latest version
 #  shell: "{{ anaconda_home }}/bin/conda update conda --yes -q executable=/bin/bash"
@@ -65,7 +59,7 @@
             owner=ubuntu group=ubuntu
 
 - name: Install Jupyter Scala binaries
-  command: /opt/jupyter-scala_2.11.6-0.2.0-SNAPSHOT/bin/jupyter-scala
+  command: /tmp/jupyter-scala
   sudo: yes
   sudo_user: ubuntu
   when: python_version == "python3"

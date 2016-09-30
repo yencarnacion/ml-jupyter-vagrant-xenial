@@ -1,14 +1,3 @@
-## 1.2.0
-
-- Add backward compatible support with Ansible 2.0.
-- Ensure that example uses YAML role specification format.
-
-## 1.1.0
-
-- Add configurable Spark user and group.
-- Add support for a custom installation directory.
-- Add support for settng `spark-defaults.conf`.
-
 ## 1.0.0
 
 - Use Apache as the source for Spark vs. Cloudera. This change breaks backward
